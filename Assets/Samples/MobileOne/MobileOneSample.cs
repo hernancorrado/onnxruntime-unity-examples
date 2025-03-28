@@ -92,10 +92,11 @@ public sealed class MobileOneSample : MonoBehaviour
 
         sb.Clear();
         sb.AppendLine($"Input: {texture.width}x{texture.height}");
-        sb.AppendLine($"Top K:");
+        sb.AppendLine($"Top:");
         foreach (var label in inference.TopKLabels)
         {
-            sb.AppendLine($"{labelNames[label.index]} ({label.score})");
+            sb.AppendLine($"Names: {labelNames[label.index]}");
+            sb.AppendLine($"Score: {label.score}");
         }
         onDebugTopK.Invoke(sb.ToString());
     }
